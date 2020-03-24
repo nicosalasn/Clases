@@ -14,13 +14,14 @@
 
 # Creación de Objetos
 
-x<-NULL
-y<-c(TRUE,FALSE)
-as.numeric(y)
+x<-NULL #objeto vacío
+y<-c(TRUE,FALSE)#concatenar valores logicos
+as.numeric(y) #convierta un objeto en numerico, si es que puede
 
 A<-1
-years<-2010:2020
-tiktoc<-c("Que", "linda", "te ves", "limpiando", "Esperancita")
+years<-2010:2020 #objeto que tomara el rango completo del 2010 al 2020
+tiktoc<-c("Que", "linda", "te ves", "limpiando", "Esperancita") #concatena los string entre parentesis, todos los elementos
+class(tiktoc)
 m1<-matrix(1:4,2,2)
 a1<-array(1:12,dim = c(2,2,3))
 d1<-data.frame(m1)
@@ -47,7 +48,7 @@ tail(d1)
 rm(l1)
 
 #Bonus: como se borra todo?
-
+rm(list=ls())
 # Indexación uso de los []
 
 length(years)
@@ -57,7 +58,7 @@ dim(m1)
 m1[2,3]
 
 dim(a1)
-a1[2,1,3]
+a1[2,1,3] #fila, columna,dimension en ese orden
 
 l1[2]
 l1[2][[1]][1:2]
@@ -121,6 +122,7 @@ tapply(X = quakes$mag,INDEX = quakes$stations, FUN = mean)
 #https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
 library(tidyverse)
 #Cómo se instala el paquete si no lo tengo? Tank!!! ayudaaaa!
+install.packages("tidyverse")
 
 quakes %>% 
   filter(mag>6) %>% 
@@ -132,6 +134,7 @@ quakes %>%
 
 
 ### 3. data.table (recommended in this course)
+install.packages("data.table")
 library(data.table)
 #https://github.com/rstudio/cheatsheets/raw/master/datatable.pdf
 
