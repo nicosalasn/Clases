@@ -19,60 +19,105 @@ y<-c(TRUE,FALSE)#concatenar valores logicos
 as.numeric(y) #convierta un objeto en numerico, si es que puede
 
 A<-1
+<<<<<<< HEAD
 years<-2010:2020 #objeto que tomara el rango completo del 2010 al 2020
 tiktoc<-c("Que", "linda", "te ves", "limpiando", "Esperancita") #concatena los string entre parentesis, todos los elementos
 class(tiktoc)
+=======
+years<-2010:2020
+year<- seq(2010,2020,by = 0.5)
+tiktoc<-c("Que", "linda", "te ves", "limpiando", "Esperancita")
+
+paste("Hola","Mundo",sep=" ")
+
+paste(tiktoc,collapse = " ")
+
+obj2<- as.numeric(c(1,2,3,4,"Esperancita"))
+is.na(obj2)
+
+
+numeros_en_texto<-c("1","2","3")
+as.numeric(numeros_en_texto)
+
+>>>>>>> 7a0750334e5bd6a30dc923727a86b4ca42c7af30
 m1<-matrix(1:4,2,2)
+m1%*%t(m1)
+diag(m1)
+solve(m1)
+
+
 a1<-array(1:12,dim = c(2,2,3))
+
 d1<-data.frame(m1)
 data("quakes") # promise
 d1<-data.frame(quakes)
 
 ls()
-l1<-list(A=A,years,tiktoc,m1)
+
+l1<-list(Perrito=A,years,tiktoc,m1)
+A<-3L
 
 # Manipulación de Objetos
 ls()
+
+A<-1L
 
 class(A)
 typeof(A)
 
 length(years)
 dim(m1)
+
 object.size(d1)
 
 names(d1)
 head(d1)
 tail(d1)
 
-rm(l1)
+rm(A)
 
 #Bonus: como se borra todo?
 rm(list=ls())
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7a0750334e5bd6a30dc923727a86b4ca42c7af30
 # Indexación uso de los []
 
 length(years)
-years[1]
+years[11]
 
 dim(m1)
-m1[2,3]
+m1[1,2]
 
 dim(a1)
+<<<<<<< HEAD
 a1[2,1,3] #fila, columna,dimension en ese orden
+=======
+class(a1)
+a1[2,1,3]
+>>>>>>> 7a0750334e5bd6a30dc923727a86b4ca42c7af30
 
 l1[2]
 l1[2][[1]][1:2]
 
-l1[[2]][1:2]
+l1[[2]][3:5]
+
+l1$Perrito
 
 d1[1,]
 d1[,1]
+d1[,'lat']
+d1$mag[seq(1,16,2)]
 d1$lat[1:4]
+
 d1[,'lat']
 d1[1:4,c('lat','long')]
+
 d1$mag>5
 table(d1$mag>5)
-d1[d1$mag>6,]
+d1[d1$mag>6,'stations']
+
 d1$dummy_5up<-as.numeric(d1$mag>5)
 head(d1)
 
@@ -92,6 +137,14 @@ if(A==1){
   A<-1L
 }
 
+A<-1
+class(A)
+typeof(A)
+
+dim(A)
+length(A)
+
+# For loop
 
 for(i in 1:5){
   print(paste("Me le declaro a la ", i))
@@ -101,6 +154,7 @@ for(i in 1:5){
 }
 
 i<-1
+eps<-50/(i^2)
 while(eps>0.001){
   eps<-50/(i^2)
   print(paste("eps value es still..", eps))
@@ -122,7 +176,11 @@ tapply(X = quakes$mag,INDEX = quakes$stations, FUN = mean)
 #https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
 library(tidyverse)
 #Cómo se instala el paquete si no lo tengo? Tank!!! ayudaaaa!
+<<<<<<< HEAD
 install.packages("tidyverse")
+=======
+#install.packages("tydiverse")
+>>>>>>> 7a0750334e5bd6a30dc923727a86b4ca42c7af30
 
 quakes %>% 
   filter(mag>6) %>% 
@@ -137,8 +195,11 @@ quakes %>%
 install.packages("data.table")
 library(data.table)
 #https://github.com/rstudio/cheatsheets/raw/master/datatable.pdf
-
+#install.packages("data.table")
 quakes<-data.table(quakes)
+
+
+quakes[quakes$mag>6,'mag']
 
 quakes[mag>6,.(mag)]
 
