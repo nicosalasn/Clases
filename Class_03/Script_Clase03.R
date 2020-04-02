@@ -10,14 +10,15 @@
 # Reading an exporting data
 
 library(readxl)
+library(data.table)
 
-casos<-data.table(read_excel("Class_02/2020-03-17-Casos-confirmados.xlsx",na = "—",trim_ws = TRUE,col_names = TRUE),stringsAsFactors = FALSE)
+casos<-data.table(read_excel("~/Documents/MBAn/Software tools for Big Data/Spatial Analytics/Clases/Class_02/2020-03-17-Casos-confirmados.xlsx",na = "—",trim_ws = TRUE,col_names = TRUE),stringsAsFactors = FALSE)
 
 casos<-casos[Región=="Metropolitana",]
 
-saveRDS
+saveRDS(casos,"~/Documents/MBAn/Software tools for Big Data/Spatial Analytics/Clases/Class_03/CasosCovid_RM.csv") #guarda
 
-write.csv(casos,file = 'Class_03/CasosCovid_RM.csv',fileEncoding = 'UTF-8')
+write.csv(casos,file = '~/Documents/MBAn/Software tools for Big Data/Spatial Analytics/Clases/Class_03/CasosCovid_RM.csv',fileEncoding = 'UTF-8')
 
 writexl::write_xlsx
 
@@ -25,7 +26,7 @@ library(foreign)
 
 write.dta
 
-casosRM<-fread("Class_03/CasosCovid_RM.csv",header = T, showProgress = T,data.table = T)
+casosRM<-fread("~/Documents/MBAn/Software tools for Big Data/Spatial Analytics/Clases/Class_03/CasosCovid_RM.csv",header = T, showProgress = T,data.table = T)
 
 casosRM[,table(Sexo)]
 casosRM[Sexo=="Fememino",Sexo:="Femenino"]
